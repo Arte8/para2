@@ -9,6 +9,8 @@
   <body>
     <header class="row">
       <div class="col-3">
+        <%= link_to root_path do %>
+
         <div class="circle">
           <br />
         PARA
@@ -18,15 +20,44 @@
           PARA
           <br />
       </div>
+      <% end %>
       <div class="col-4 slogan">
         tricycle fare generator
       </div>
       <div class="col-5 links">
-        <%= link_to 'Find fare', new_fare_path %>
+        <!-- Button trigger modal -->
       </div>
       </header>
+      <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      find fare
+    </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">enter your distance</h4>
+          </div>
+          <%= simple_form_for Fare.new do |f| %>
+        <div class="modal-body">
+          <%= f.input :distance %>
+          <%= f.input :perKm %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit 'Create', class: 'btn btn-danger' %>
+        </div>
+      <% end %>
+        </div>
+      </div>
+    </div>
 
+    <hr />
       <br class="clear" />
 
     <%= yield %>

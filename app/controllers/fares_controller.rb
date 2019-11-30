@@ -3,7 +3,14 @@ class FaresController < ApplicationController
     @fare = Fare.first
   end
 
-  def new
-    @fare = Fare.new
+  def create
+    @fare = Fare.create(fare_params)
+    redirect_to root_path
+  end
+
+  private
+
+  def fare_params
+    params.require(:fare).permit(:distance, :perKm)
   end
 end
