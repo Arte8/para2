@@ -3,13 +3,32 @@
   <head>
     <title>Para2</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header class="row">
+      <div class="col-3">
+        <div class="circle">
+          <br />
+        PARA
+          <br />
+          para
+          <br />
+          PARA
+          <br />
+      </div>
+      <div class="col-4 slogan">
+        tricycle fare generator
+      </div>
+      <div class="col-5 links">
+        <%= link_to 'Find fare', new_fare_path %>
+      </div>
+      </header>
+
+
+      <br class="clear" />
+
     <%= yield %>
   </body>
 </html>
